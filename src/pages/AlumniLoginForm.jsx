@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AlumniSignup from "./AlumniSignup";
 
 const AlumniLoginForm = ({ closeModal }) => {
+  const [isAlumniModalOpen, setAlumniModalOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,17 +33,19 @@ const AlumniLoginForm = ({ closeModal }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="relative flex flex-col items-center justify-center w-[90%] max-w-lg h-auto sm:h-[60%] lg:h-[50%] bg-white border border-gray-200 shadow-2xl p-8 rounded-2xl">
-        {/* Cross Button */}
+      <div className="relative flex flex-col items-center justify-center w-[90%] max-w-lg min-h-fit bg-white border border-gray-200 shadow-2xl p-6 sm:p-8 rounded-xl">
+        {/* Close Button */}
         <button
           onClick={closeModal}
-          className="absolute top-3 right-3 text-gray-600 hover:text-gray-800 bg-gray-200 rounded-full p-2 shadow-md"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 bg-gray-200 rounded-full p-2 shadow-md focus:outline-none"
         >
           ✕
         </button>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Alumni Login</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+          Alumni Login
+        </h1>
 
         {/* Error Message */}
         {error && (
@@ -50,7 +54,7 @@ const AlumniLoginForm = ({ closeModal }) => {
 
         {/* Login Form */}
         <form onSubmit={handleSubmit} className="w-full">
-          {/* Email ID */}
+          {/* Email Input */}
           <div className="mb-5">
             <label
               className="block mb-2 text-sm font-medium text-gray-700"
@@ -68,7 +72,7 @@ const AlumniLoginForm = ({ closeModal }) => {
             />
           </div>
 
-          {/* Password */}
+          {/* Password Input */}
           <div className="mb-6">
             <label
               className="block mb-2 text-sm font-medium text-gray-700"
@@ -86,7 +90,7 @@ const AlumniLoginForm = ({ closeModal }) => {
             />
           </div>
 
-          {/* Login Button */}
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium text-lg py-3 rounded-lg hover:from-blue-600 hover:to-blue-800 shadow-md transition-all duration-300"
@@ -94,7 +98,31 @@ const AlumniLoginForm = ({ closeModal }) => {
             Login
           </button>
         </form>
+
+        {/* Additional Links */}
+        <div className="flex flex-col items-center justify-center w-full mt-4">
+          <button className="text-blue-700 hover:underline">
+            Forgot Password?
+          </button>
+          <div className="flex items-center space-x-2 mt-3">
+            <p>Don't have an account?</p>
+            <button
+              onClick={() => setAlumniModalOpen(true)} // Toggle the AlumniSignup modal
+              className="text-blue-600 hover:underline"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* AlumniSignup Modal */}
+      {isAlumniModalOpen && (
+        <AlumniSignup
+          isOpen={isAlumniModalOpen}
+          onClose={() => setAlumniModalOpen(false)}
+        />
+      )}
     </div>
   );
 };

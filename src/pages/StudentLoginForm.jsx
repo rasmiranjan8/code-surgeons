@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import StudentSignup from "./StudentSignup";
 
 const StudentLoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isStudentSignupModalOpen, setStudentSignupModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -86,6 +88,24 @@ const StudentLoginForm = () => {
           Login
         </button>
       </form>
+      <div className="flex flex-col items-center justify-center w-full">
+        <div className="p-4 text-blue-700">
+          <button>Forgot Password?</button>
+        </div>
+        <div className="flex flex-row space-x-2">
+          <p>Don't have an account ? </p>
+          <button
+            className="text-blue-600"
+            onClick={() => setStudentSignupModalOpen(true)}
+          >
+            Sign Up
+          </button>
+          <StudentSignup
+            isOpen={isStudentSignupModalOpen}
+            onClose={() => setStudentSignupModalOpen(false)}
+          />
+        </div>
+      </div>
     </div>
   );
 };
