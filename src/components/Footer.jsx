@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="w-full bg-darkblue text-white">
+    <div className="w-full bg-darkblue text-white px-16">
       {/* Upper Section */}
       <div className="flex flex-wrap w-full py-8">
         {/* Left box */}

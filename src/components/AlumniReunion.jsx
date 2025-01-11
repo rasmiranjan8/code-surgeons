@@ -24,30 +24,30 @@ const AlumniReunion = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-10">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
         BIT Sindri Alumni Reunions
       </h1>
-      <div className="flex flex-row justify-between space-x-16 w-full max-w-5xl px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl px-6">
         {reunions.map((reunion, index) => (
           <div
             key={index}
-            className="flex flex-row items-center bg-white h-[300px] w-[300px] shadow-lg rounded-lg p-6 border border-gray-200"
+            className="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 border border-gray-200"
           >
             <div
-              className={`w-[250px] h-[250px] flex flex-col items-center justify-center rounded-full text-white text-3xl font-bold ${reunion.color}`}
+              className={`w-[200px] h-[200px] md:w-[250px] md:h-[250px] flex flex-col items-center justify-center rounded-full text-white text-3xl font-bold ${reunion.color}`}
             >
-              <div className="relative w-[200px] h-[100px] ml-[170px] mb-12">
+              <div className="relative w-[150px] h-[75px] md:w-[200px] md:h-[100px] ml-[50px] md:ml-[170px] mb-12">
                 {/* Half-Circular Text */}
                 {reunion.title.split("").map((char, i) => (
                   <span
                     key={i}
                     style={{
                       position: "absolute",
-                      transformOrigin: "50% 300%", // Adjust to create a half-circle
+                      transformOrigin: "50% 300%",
                       transform: `rotate(${
                         i * (180 / (reunion.title.length - 1)) - 90
                       }deg)`,
-                      fontSize: "1.5rem",
+                      fontSize: "1.2rem",
                       color: "#333",
                       fontWeight: "bold",
                     }}
@@ -56,9 +56,7 @@ const AlumniReunion = () => {
                   </span>
                 ))}
               </div>
-              <div
-                className={`text-4lg font-semibold bg-transparent  mt-4`}
-              >
+              <div className="text-4lg font-semibold bg-transparent mt-4">
                 {reunion.badge}
               </div>
               <div className="text-white mt-2">{reunion.year}</div>
@@ -71,3 +69,4 @@ const AlumniReunion = () => {
 };
 
 export default AlumniReunion;
+ 

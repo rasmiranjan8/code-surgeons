@@ -5,7 +5,9 @@ export default {
     extend: {
       colors: {
         darkblue: "rgb(5, 4, 44)",
+        customBlue: '#0071B9',
       },
+      scrollBehavior: ["smooth"],
     },
   },
   plugins: [],

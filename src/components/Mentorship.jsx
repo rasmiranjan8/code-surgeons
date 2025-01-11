@@ -1,40 +1,26 @@
 import React from "react";
+import { GoArrowUpRight } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 const Mentorship = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-white py-8 flex items-center justify-center">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+    <div
+      id="mentorship-program"
+      className="bg-white py-10 flex items-center justify-center"
+    >
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 px-2">
         {/* Left Section */}
-        <div className="flex flex-col justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Unlock Your Potential <br /> Through Mentorship
+        <div className="flex flex-col justify-center text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Build Lasting Connections with Mentors
           </h1>
-          <p className="text-gray-600 mb-4">
-            Our mentorship program bridges the gap between alumni and students.
-            Gain strategic guidance, and support from experienced professionals
-            in your field.
+          <p className="text-gray-600 mb-6 text-sm sm:text-base">
+            Connect with industry experts who can guide your career journey
           </p>
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                Expert Guidance
-              </h2>
-              <p className="text-gray-600 text-sm">
-                Receive mentorship from experts in your desired industry.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                Networking Opportunities
-              </h2>
-              <p className="text-gray-600 text-sm">
-                Build lasting connections and get introduced to new career
-                paths.
-              </p>
-            </div>
-          </div>
-          <button className="bg-blue-500 text-white w-[200px] items-center justify-center px-6 py-3 rounded-md hover:bg-blue-600">
-            Sign Up
+          
+          <button onClick={() => navigate("/alumni/mentorship")} className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition">
+            Find a Mentor<GoArrowUpRight size={20} className="inline-block ml-1"/> 
           </button>
         </div>
 
@@ -43,7 +29,7 @@ const Mentorship = () => {
           <img
             src="/Mentorship_section_Image.png"
             alt="Mentorship"
-            className="rounded-md shadow-lg w-[80%] h-auto object-cover"
+            className="rounded-md shadow-lg w-full sm:w-[80%] md:w-[60%] lg:w-[95%] h-auto object-cover"
           />
         </div>
       </div>

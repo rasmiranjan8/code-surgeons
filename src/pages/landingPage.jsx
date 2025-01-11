@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Mentorship from "../components/Mentorship";
 import CareerSupport from "../components/CareerSupport";
 import AlumniReunion from "../components/AlumniReunion";
+import Feedback from "../components/Feedback";
+import AlumniStatistics from "../components/AlumniStatistics";
 
 const LandingPage = () => {
   const sliderImages = [
@@ -14,7 +16,6 @@ const LandingPage = () => {
     "/Hero_Section_Image.png",
     "/Hero_Section_Image.png",
     "/Hero_Section_Image.png",
-    
   ];
 
   return (
@@ -22,8 +23,10 @@ const LandingPage = () => {
       <div className="flex flex-col">
         <Navbar />
         <ImageSlider sliderImages={sliderImages} />
+        <AlumniStatistics />
         <Mentorship />
         <CareerSupport />
+        <Feedback />
         <AlumniReunion />
         <Join />
         <Footer />
