@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
-
+import Footer from "../components/Footer";
 const mentors = [
   {
     name: "John Doe",
@@ -18,6 +18,70 @@ const mentors = [
     skills: ["Machine Learning", "Python", "Big Data"],
     rating: 4.8,
   },
+  {
+    name: "Alice Johnson",
+    position: "UX Designer at Adobe",
+    location: "Austin, TX",
+    experience: "5 years experience",
+    skills: ["UI/UX Design", "Figma", "Prototyping"],
+    rating: 4.7,
+  },
+  {
+    name: "Michael Brown",
+    position: "Project Manager at Amazon",
+    location: "New York, NY",
+    experience: "10 years experience",
+    skills: ["Project Management", "Agile", "Scrum"],
+    rating: 4.6,
+  },
+  {
+    name: "Emily Davis",
+    position: "Biomedical Researcher at Pfizer",
+    location: "Boston, MA",
+    experience: "7 years experience",
+    skills: ["Clinical Research", "Data Analysis", "Molecular Biology"],
+    rating: 4.8,
+  },
+  {
+    name: "Robert Wilson",
+    position: "Mechanical Engineer at Tesla",
+    location: "Palo Alto, CA",
+    experience: "9 years experience",
+    skills: ["AutoCAD", "SolidWorks", "Quality Control"],
+    rating: 4.7,
+  },
+  {
+    name: "Sophia Martinez",
+    position: "Marketing Specialist at HubSpot",
+    location: "Denver, CO",
+    experience: "4 years experience",
+    skills: ["SEO", "Content Marketing", "Social Media Strategy"],
+    rating: 4.9,
+  },
+  {
+    name: "David Clark",
+    position: "Cybersecurity Consultant at IBM",
+    location: "Washington, D.C.",
+    experience: "12 years experience",
+    skills: ["Network Security", "Ethical Hacking", "Risk Management"],
+    rating: 4.5,
+  },
+  {
+    name: "Laura Gonzalez",
+    position: "Legal Advisor at Baker McKenzie",
+    location: "Miami, FL",
+    experience: "15 years experience",
+    skills: ["Corporate Law", "Contract Drafting", "Compliance"],
+    rating: 4.6,
+  },
+  {
+    name: "Kevin Lee",
+    position: "Entrepreneur & Founder of FoodTech Inc.",
+    location: "Chicago, IL",
+    experience: "8 years experience",
+    skills: ["Entrepreneurship", "Strategic Planning", "Team Leadership"],
+    rating: 4.8,
+  },
 ];
 
 const getRecentGraduationYears = (numYears) => {
@@ -26,7 +90,34 @@ const getRecentGraduationYears = (numYears) => {
 };
 
 const MentorshipPage = () => {
+  const [selectedIndustry, setSelectedIndustry] = useState("all-industries");
+  const [selectedYear, setSelectedYear] = useState("all-years");
+  const [selectedSkill, setSelectedSkill] = useState("all-skills");
+
   const graduationYears = getRecentGraduationYears(15);
+
+  // Filter Function
+  const filteredMentors = mentors.filter((mentor) => {
+    // Filter by industry (position)
+    const matchesIndustry =
+      selectedIndustry === "all-industries" ||
+      mentor.position
+        .toLowerCase()
+        .includes(selectedIndustry.replace("-", " "));
+
+    // Filter by graduation year (dummy check, adapt as necessary for real data)
+    const matchesYear =
+      selectedYear === "all-years" || mentor.experience.includes(selectedYear);
+
+    // Filter by skills
+    const matchesSkill =
+      selectedSkill === "all-skills" ||
+      mentor.skills.some((skill) =>
+        skill.toLowerCase().includes(selectedSkill.replace("-", " "))
+      );
+
+    return matchesIndustry && matchesYear && matchesSkill;
+  });
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -51,31 +142,30 @@ const MentorshipPage = () => {
         <h2 className="text-xl font-semibold mb-4">Filters</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Industry Dropdown */}
-          <select className="border rounded-lg px-4 py-2 text-gray-700">
+          <select
+            className="border rounded-lg px-4 py-2 text-gray-700"
+            value={selectedIndustry}
+            onChange={(e) => setSelectedIndustry(e.target.value)}
+          >
             <option value="all-industries">All Industries</option>
-            <option value="information-technology">
-              Information Technology & Software Development
-            </option>
-            <option value="healthcare">Healthcare & Pharmaceuticals</option>
-            <option value="manufacturing">Manufacturing & Engineering</option>
-            <option value="education">Education & Research</option>
-            <option value="finance">Finance & Banking</option>
-            <option value="entrepreneurship">
-              Entrepreneurship & Startups
-            </option>
-            <option value="marketing">Marketing & Advertising</option>
-            <option value="government">Government & Public Policy</option>
-            <option value="energy">Energy & Environment</option>
-            <option value="legal">Legal & Compliance</option>
-            <option value="retail">Retail & E-commerce</option>
-            <option value="media">Media & Entertainment</option>
-            <option value="hospitality">Hospitality & Tourism</option>
-            <option value="non-profit">Non-profit & Social Services</option>
-            <option value="others">Others</option>
+            <option value="software-engineer">Software Development</option>
+            <option value="data-scientist">Data Science</option>
+            <option value="ui-ux-design">Design</option>
+            <option value="project-manager">Project Management</option>
+            <option value="biomedical-researcher">Healthcare</option>
+            <option value="mechanical-engineer">Engineering</option>
+            <option value="marketing">Marketing</option>
+            <option value="cybersecurity">Cybersecurity</option>
+            <option value="legal">Legal</option>
+            <option value="entrepreneurship">Entrepreneurship</option>
           </select>
 
           {/* Graduation Year Dropdown */}
-          <select className="border rounded-lg px-4 py-2 text-gray-700">
+          <select
+            className="border rounded-lg px-4 py-2 text-gray-700"
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+          >
             <option value="all-years">Graduation Year</option>
             {graduationYears.map((year) => (
               <option key={year} value={year}>
@@ -85,34 +175,50 @@ const MentorshipPage = () => {
           </select>
 
           {/* Skills Dropdown */}
-          <select className="border rounded-lg px-4 py-2 text-gray-700">
+          {/* Skills Dropdown */}
+          <select
+            className="border rounded-lg px-4 py-2 text-gray-700"
+            value={selectedSkill}
+            onChange={(e) => setSelectedSkill(e.target.value)}
+          >
             <option value="all-skills">All Skills</option>
-            <optgroup label="Programming Skills">
-              <option value="programming">
-                Programming Languages (e.g., Python, Java, C++)
-              </option>
-              <option value="data-analysis">
-                Data Analysis & Visualization (e.g., Excel, Tableau, Power BI)
-              </option>
-              <option value="cloud-computing">
-                Cloud Computing (e.g., AWS, Azure, Google Cloud)
-              </option>
-              <option value="cybersecurity">Cybersecurity</option>
-              <option value="ai-ml">
-                Artificial Intelligence & Machine Learning
-              </option>
-              <option value="software-development">
-                Software Development & Testing
-              </option>
-              <option value="web-development">
-                Web Development (e.g., React, Angular, HTML/CSS)
-              </option>
-              <option value="network-admin">Network Administration</option>
-              <option value="cad-engineering">
-                CAD & Engineering Design Tools
-              </option>
-              <option value="blockchain">Blockchain Development</option>
+            {/* Programming Skills */}
+            <optgroup label="Programming Languages">
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="c++">C++</option>
             </optgroup>
+            <optgroup label="Data Analysis & Visualization">
+              <option value="excel">Excel</option>
+              <option value="tableau">Tableau</option>
+              <option value="power-bi">Power BI</option>
+            </optgroup>
+            <optgroup label="Cloud Computing">
+              <option value="aws">AWS</option>
+              <option value="azure">Azure</option>
+              <option value="google-cloud">Google Cloud</option>
+            </optgroup>
+            <option value="cybersecurity">Cybersecurity</option>
+            <option value="ai-ml">
+              Artificial Intelligence & Machine Learning
+            </option>
+            <option value="software-development">
+              Software Development & Testing
+            </option>
+            <optgroup label="Web Development">
+              <option value="react">React</option>
+              <option value="angular">Angular</option>
+              <option value="html-css">HTML/CSS</option>
+            </optgroup>
+            <option value="network-administration">
+              Network Administration
+            </option>
+            <option value="cad-design-tools">
+              CAD & Engineering Design Tools
+            </option>
+            <option value="blockchain">Blockchain Development</option>
+
+            {/* Soft Skills */}
             <optgroup label="Soft Skills">
               <option value="communication">
                 Communication & Interpersonal Skills
@@ -131,9 +237,11 @@ const MentorshipPage = () => {
                 Public Speaking & Presentation
               </option>
             </optgroup>
+
+            {/* Business Skills */}
             <optgroup label="Business Skills">
               <option value="project-management">
-                Project Management (e.g., Agile, Scrum)
+                Project Management (Agile, Scrum)
               </option>
               <option value="business-analysis">Business Analysis</option>
               <option value="marketing-sales">Marketing & Sales</option>
@@ -144,38 +252,44 @@ const MentorshipPage = () => {
               <option value="strategic-planning">Strategic Planning</option>
               <option value="risk-management">Risk Management</option>
             </optgroup>
+
+            {/* Creative Skills */}
             <optgroup label="Creative Skills">
               <option value="graphic-design">
-                Graphic Design (e.g., Adobe Photoshop, Illustrator)
+                Graphic Design (Adobe Photoshop, Illustrator)
               </option>
               <option value="video-editing">
-                Video Editing (e.g., Premiere Pro, Final Cut Pro)
+                Video Editing (Premiere Pro, Final Cut Pro)
               </option>
-              <option value="ui-ux-design">
-                UI/UX Design (e.g., Figma, Sketch)
-              </option>
+              <option value="ui-ux-design">UI/UX Design (Figma, Sketch)</option>
               <option value="content-creation">
                 Content Creation & Copywriting
               </option>
-              <option value="photography">Photography & Videography</option>
+              <option value="photography-videography">
+                Photography & Videography
+              </option>
             </optgroup>
+
+            {/* Industry-Specific Skills */}
             <optgroup label="Industry-Specific Skills">
               <option value="healthcare">
-                Healthcare (e.g., Clinical Research, Patient Care)
+                Healthcare (Clinical Research, Patient Care)
               </option>
               <option value="manufacturing">
-                Manufacturing (e.g., Quality Control, Lean Manufacturing)
+                Manufacturing (Quality Control, Lean Manufacturing)
               </option>
               <option value="education">
-                Education (e.g., Curriculum Design, Instructional Techniques)
+                Education (Curriculum Design, Instructional Techniques)
               </option>
               <option value="legal">
-                Legal (e.g., Contract Drafting, Compliance)
+                Legal (Contract Drafting, Compliance)
               </option>
-              <option value="energy">
-                Energy & Environment (e.g., Renewable Energy Systems)
+              <option value="energy-environment">
+                Energy & Environment (Renewable Energy Systems)
               </option>
             </optgroup>
+
+            {/* Other Skills */}
             <option value="others">Others</option>
           </select>
         </div>
@@ -183,7 +297,7 @@ const MentorshipPage = () => {
 
       {/* Mentors List */}
       <section className="mt-8 mx-4 md:mx-20">
-        {mentors.map((mentor, index) => (
+        {filteredMentors.map((mentor, index) => (
           <div
             key={index}
             className="bg-white shadow-md p-6 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between"
@@ -221,6 +335,7 @@ const MentorshipPage = () => {
           </div>
         ))}
       </section>
+      <Footer />
     </div>
   );
 };
