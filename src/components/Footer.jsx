@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -7,6 +8,26 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const [emailEntered, setEmailEntered] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (emailEntered.trim() === "") {
+      setMessage("Please enter a valid email address.");
+    } else {
+      setMessage(
+        "Thank you for subscribing! You’ll now receive our latest updates."
+      );
+      setEmailEntered(""); // Clear the input field
+    }
+
+    // Clear the message after 3 seconds
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  };
+
   return (
     <div className="w-full bg-darkblue text-white px-16">
       {/* Upper Section */}
@@ -24,12 +45,14 @@ const Footer = () => {
             miss out on valuable insights and networking chances!
           </div>
           <form
-            action=""
+            onSubmit={handleSubscribe}
             className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 py-4 items-center"
           >
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter Your Email"
+              value={emailEntered}
+              onChange={(e) => setEmailEntered(e.target.value)}
               className="px-4 py-2 border border-gray-300 bg-transparent text-white placeholder:text-gray-300 w-full lg:w-[70%]"
             />
             <button
@@ -39,9 +62,12 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
-          <p className="text-sm">
-            By clicking Sign Up you're confirming that you agree with our Terms
-            and Conditions.
+          {message && (
+            <p className="my-2 text-center text-green-400 text-sm">{message}</p>
+          )}
+          <p className="text-sm mt-2">
+            By clicking Subscribe you're confirming that you agree with our
+            Terms and Conditions.
           </p>
         </div>
       </div>
@@ -56,13 +82,13 @@ const Footer = () => {
         {/* Navigation Links */}
         <ul className="w-full lg:w-auto flex flex-wrap justify-center lg:justify-start space-x-16 text-center">
           <li>
-            <a href="#">Alumni Network</a>
+            <a href="#alumni-network">Alumni Network</a>
           </li>
           <li>
-            <a href="#">Career Support</a>
+            <a href="#career-support">Career Support</a>
           </li>
           <li>
-            <a href="#">Mentorship Program</a>
+            <a href="#mentorship-program">Mentorship Program</a>
           </li>
           <li>
             <a href="#">Event Calendar</a>
@@ -123,9 +149,15 @@ const Footer = () => {
           © 2025 BIT Sindri Alumni Network. All rights reserved.
         </p>
         <ul className="w-full lg:w-auto flex flex-wrap justify-center lg:justify-end space-x-4 px-0 lg:px-8">
-          <li>Privacy Policy</li>
-          <li>Terms of Service</li>
-          <li>Cookies Setting</li>
+          <li>
+            <button>Privacy Policy</button>
+          </li>
+          <li>
+            <button>Terms of Service</button>
+          </li>
+          <li>
+            <button>Cookies Setting</button>
+          </li>
         </ul>
       </div>
     </div>

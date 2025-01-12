@@ -1,8 +1,10 @@
 import React from "react";
-import { FiBookOpen } from "react-icons/fi";
-import { SlCalender } from "react-icons/sl";
+import { FiArrowUpRight } from "react-icons/fi";
 
+
+import { useNavigate } from "react-router-dom";
 const CareerSupport = () => {
+  const navigate = useNavigate();
   return (
     <div
       id="career-support"
@@ -28,14 +30,12 @@ const CareerSupport = () => {
             growth.
           </p>
           <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
-            <button className="bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 flex items-center gap-2">
-              <FiBookOpen size={24} />
-              Explore Resource
-            </button>
-
-            <button className="bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 flex items-center gap-2">
-              <SlCalender size={24} />
-              Book a Session
+            <button
+              className="bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 flex items-center gap-2"
+              onClick={() => navigate("/resources")}
+            >
+              Explore
+              <FiArrowUpRight size={24} />
             </button>
           </div>
         </div>

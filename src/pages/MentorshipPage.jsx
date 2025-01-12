@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import Footer from "../components/Footer";
+
 const mentors = [
   {
     name: "John Doe",
@@ -94,30 +95,35 @@ const MentorshipPage = () => {
   const [selectedYear, setSelectedYear] = useState("all-years");
   const [selectedSkill, setSelectedSkill] = useState("all-skills");
 
+  const [visibleCards, setVisibleCards] = useState([]);
+
   const graduationYears = getRecentGraduationYears(15);
 
   // Filter Function
   const filteredMentors = mentors.filter((mentor) => {
-    // Filter by industry (position)
     const matchesIndustry =
       selectedIndustry === "all-industries" ||
       mentor.position
         .toLowerCase()
         .includes(selectedIndustry.replace("-", " "));
-
-    // Filter by graduation year (dummy check, adapt as necessary for real data)
     const matchesYear =
       selectedYear === "all-years" || mentor.experience.includes(selectedYear);
-
-    // Filter by skills
     const matchesSkill =
       selectedSkill === "all-skills" ||
       mentor.skills.some((skill) =>
         skill.toLowerCase().includes(selectedSkill.replace("-", " "))
       );
-
     return matchesIndustry && matchesYear && matchesSkill;
   });
+
+  useEffect(() => {
+    // Animate the cards on page load
+    filteredMentors.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleCards((prev) => [...prev, index]);
+      }, index * 200); // Add a 200ms delay per card
+    });
+  }, [filteredMentors]);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -134,14 +140,15 @@ const MentorshipPage = () => {
             <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
           </div>
         </div>
-        <button className="bg-blue-700 px-4 py-2 rounded-lg">Logout</button>
+        <button className="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800">
+          Login/Signup
+        </button>
       </header>
 
       {/* Filters */}
       <section className="bg-white shadow-md p-6 rounded-lg mx-4 md:mx-20 mt-6">
         <h2 className="text-xl font-semibold mb-4">Filters</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Industry Dropdown */}
           <select
             className="border rounded-lg px-4 py-2 text-gray-700"
             value={selectedIndustry}
@@ -159,8 +166,6 @@ const MentorshipPage = () => {
             <option value="legal">Legal</option>
             <option value="entrepreneurship">Entrepreneurship</option>
           </select>
-
-          {/* Graduation Year Dropdown */}
           <select
             className="border rounded-lg px-4 py-2 text-gray-700"
             value={selectedYear}
@@ -173,9 +178,6 @@ const MentorshipPage = () => {
               </option>
             ))}
           </select>
-
-          {/* Skills Dropdown */}
-          {/* Skills Dropdown */}
           <select
             className="border rounded-lg px-4 py-2 text-gray-700"
             value={selectedSkill}
@@ -300,7 +302,11 @@ const MentorshipPage = () => {
         {filteredMentors.map((mentor, index) => (
           <div
             key={index}
-            className="bg-white shadow-md p-6 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between"
+            className={`bg-white shadow-md p-6 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between transition-opacity transform duration-500 ${
+              visibleCards.includes(index)
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-5"
+            }`}
           >
             <div className="flex flex-col space-y-2">
               <h3 className="text-xl font-semibold">{mentor.name}</h3>
@@ -328,7 +334,7 @@ const MentorshipPage = () => {
                   {mentor.rating}
                 </span>
               </div>
-              <button className="bg-blue-700 text-white px-4 py-2 rounded-lg">
+              <button className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg">
                 Request Mentorship
               </button>
             </div>

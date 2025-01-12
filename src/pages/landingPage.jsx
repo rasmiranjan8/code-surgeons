@@ -11,11 +11,10 @@ import AlumniStatistics from "../components/AlumniStatistics";
 
 const LandingPage = () => {
   const sliderImages = [
-    "/Hero_Section_Image.png",
-    "/Hero_Section_Image.png",
-    "/Hero_Section_Image.png",
-    "/Hero_Section_Image.png",
-    "/Hero_Section_Image.png",
+    "/image3.jpg",
+    "/image4.jpg",
+    "/image2.jpg",
+    "/image1.png",
   ];
 
   return (
@@ -27,7 +26,7 @@ const LandingPage = () => {
         <Mentorship />
         <CareerSupport />
         <Feedback />
-        <AlumniReunion />
+       
         <Join />
         <Footer />
       </div>

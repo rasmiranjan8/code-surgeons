@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
+import AlumniSignup from "../pages/AlumniSignup";
 
 const Mentorship = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div
       id="mentorship-program"
@@ -18,10 +25,22 @@ const Mentorship = () => {
           <p className="text-gray-600 mb-6 text-sm sm:text-base">
             Connect with industry experts who can guide your career journey
           </p>
-          
-          <button onClick={() => navigate("/alumni/mentorship")} className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition">
-            Find a Mentor<GoArrowUpRight size={20} className="inline-block ml-1"/> 
-          </button>
+          <div className="flex space-x-6">
+            <button
+              onClick={() => navigate("/alumni/mentorship")}
+              className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition"
+            >
+              Find a Mentor
+              <GoArrowUpRight size={20} className="inline-block ml-1" />
+            </button>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition"
+            >
+              Become a Mentor
+              <GoArrowUpRight size={20} className="inline-block ml-1" />
+            </button>
+          </div>
         </div>
 
         {/* Right Section */}
@@ -33,6 +52,9 @@ const Mentorship = () => {
           />
         </div>
       </div>
+
+      {/* AlumniSignup Modal */}
+      <AlumniSignup isOpen={isModalOpen} onClose={handleModalClose} />
     </div>
   );
 };

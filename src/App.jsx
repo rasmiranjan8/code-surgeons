@@ -8,7 +8,8 @@ import StudentProfile from "./pages/StudentProfile";
 import AlumniDashboard from "./pages/AlumniDashboard";
 import AlumniProfile from "./pages/AlumniProfile" 
 import MentorshipPage from "./pages/MentorshipPage";
-
+import ExploreResource from "./pages/ExploreResource";
+import AlumniDirectory from "./pages/AlumniDirectory";
 function App() {
   return (
     <div>
@@ -24,6 +25,8 @@ function App() {
         <Route path="/alumni/dashboard" element={<AlumniDashboard />} />
         <Route path="/Alumni/profile" element={<AlumniProfile />} />
         <Route path="/alumni/mentorship" element={<MentorshipPage />} />
+        <Route path="/resources" element={<ExploreResource />} />
+        <Route path="/alumni-directory" element={<AlumniDirectory />} />
       </Routes>
     </div>
   );

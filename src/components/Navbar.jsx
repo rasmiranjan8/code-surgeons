@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import StudentLoginForm from "../pages/StudentLoginForm"; // Import the StudentLoginForm component
 import AlumniLoginForm from "../pages/AlumniLoginForm"; // Import the AlumniLoginForm component
+import { IoSearchSharp } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,6 +49,14 @@ const Navbar = () => {
               BIT SINDRI, DHANBAD, JHARKHAND
             </span>
           </div>
+        </div>
+        <div className="relative w-1/4">
+          <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          <input
+            type="search"
+            className="border rounded w-full h-10 pl-10 pr-5"
+            placeholder="Search Profile and Resources . . ."
+          />
         </div>
 
         {/* Desktop Navigation */}
@@ -173,7 +182,7 @@ const Navbar = () => {
             {/* Include the AlumniLoginForm and pass the close function */}
             <AlumniLoginForm closeModal={closeAlumniLoginModal} />
 
-            {/* Close Button */} 
+            {/* Close Button */}
             <button
               onClick={closeAlumniLoginModal}
               className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 bg-gray-200 rounded-full p-2 shadow focus:outline-none focus:ring-2 focus:ring-blue-500"

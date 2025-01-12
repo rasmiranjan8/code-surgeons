@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const ImageSlider = ({ sliderImages }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -20,6 +20,7 @@ const ImageSlider = ({ sliderImages }) => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="flex items-center justify-center py-10">
@@ -35,7 +36,7 @@ const ImageSlider = ({ sliderImages }) => {
               key={index}
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full items-center object-full flex-shrink-0"
+              className="w-full h-full items-center object-fill flex-shrink-0"
             />
           ))}
         </div>
@@ -47,11 +48,14 @@ const ImageSlider = ({ sliderImages }) => {
           </h1>
           <p className="text-sm md:text-base w-[80%] sm:w-[90%] md:w-[70%] text-white p-2 rounded-md mt-2">
             Welcome to the BIT Sindri Alumni Network, where we bridge the gap
-            between alumni and current students. Join us to explore Fostering Connections Between BIT Sindri Alumni and Studentsmentorship
+            between alumni and current students. Join us to explore Fostering
+            Connections Between BIT Sindri Alumni and Studentsmentorship
             opportunities, career guidance, and a vibrant directory for
             networking.
           </p>
-          <button className="border border-gray-200 bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500">Connect</button>
+          <button onClick={() => navigate("/alumni-directory")} className="border border-gray-200 bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800">
+            Connect
+          </button>
         </div>
 
         {/* Left Button */}
