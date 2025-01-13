@@ -1,11 +1,17 @@
 import { useState } from "react";
 import StudentSignup from "../pages/StudentSignup";
+import AlumniSignup from "../pages/AlumniSignup";
 
 const Join = () => {
+  const [isStudentSignupModalOpen, setStudentSignupModalOpen] = useState(false);
+  const [isAlumniSignupModalOpen, setAlumniSignupModalOpen] = useState(false);
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
 
-  const handleOpenModal = () => setSignupModalOpen(true);
-  const handleCloseModal = () => setSignupModalOpen(false);
+  const handleStudentOpenModal = () => setStudentSignupModalOpen(true);
+  const handleStudentCloseModal = () => setStudentSignupModalOpen(false);
+  const handleAlumniOpenModal = () => setAlumniSignupModalOpen(true);
+  const handleAlumniCloseModal = () => setAlumniSignupModalOpen(false);
+  const handleSignupOpenModal = () => setSignupModalOpen(!isSignupModalOpen);
 
   return (
     <div className="bg-gray-100">
@@ -29,17 +35,40 @@ const Join = () => {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <button
-              onClick={handleOpenModal}
+              onClick={handleSignupOpenModal}
               className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-blue-700"
             >
-              Sign Up
+              {isSignupModalOpen ? "Close" : "Sign Up"}
             </button>
+            {isSignupModalOpen && (
+              <div className="flex flex-row flex-wrap justify-center gap-4">
+                <button
+                  onClick={handleStudentOpenModal}
+                  className="bg-white text-gray-800 px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-gray-200"
+                >
+                  Signup as Student
+                </button>
+                <button
+                  onClick={handleAlumniOpenModal}
+                  className="bg-white text-gray-800 px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-gray-200"
+                >
+                  Signup as Alumni
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Modal */}
-      <StudentSignup isOpen={isSignupModalOpen} onClose={handleCloseModal} />
+      <StudentSignup
+        isOpen={isStudentSignupModalOpen}
+        onClose={handleStudentCloseModal}
+      />
+      <AlumniSignup
+        isOpen={isAlumniSignupModalOpen}
+        onClose={handleAlumniCloseModal}
+      />
     </div>
   );
 };
