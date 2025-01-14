@@ -56,6 +56,12 @@ const StudentDashboard = () => {
               Logout
             </button>
             <button
+              className="bg-blue-600 text-white rounded-md p-1 px-4 hover:bg-blue-800"
+              onClick={() => navigate("/student/profile")}
+            >
+              Go to Profile
+            </button>
+            <button
               className="w-8 h-8 rounded-full bg-gray-300 flex justify-center items-center"
               onClick={() => navigate("/student/profile")}
             >
