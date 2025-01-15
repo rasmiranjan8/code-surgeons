@@ -36,7 +36,7 @@ const Join = () => {
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <button
               onClick={handleSignupOpenModal}
-              className="bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-blue-700"
+              className="bg-customBlue text-white hover:text-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-white"
             >
               {isSignupModalOpen ? "Close" : "Sign Up"}
             </button>

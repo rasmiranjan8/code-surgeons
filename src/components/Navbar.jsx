@@ -36,14 +36,14 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-darkblue shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+    <header className="bg-darkblue shadow-sm top-0 z-50 ">
+      <div className="container mx-auto flex justify-between items-center py-6 px-6">
         {/* Logo and Title */}
         <div className="flex items-center">
-          <img src="/BIT_Sindri_Logo.png" alt="Logo" className="h-10" />
+          <img src="/BIT_Sindri_Logo.png" alt="Logo" className="h-20" />
           <div className="flex flex-col ml-2">
-            <span className="text-lg font-bold text-customBlue  hover:text-gray-300">
-              ALUMNI
+            <span className="text-lg font-bold text-customBlue">
+              ALUMNI CONNECT
             </span>
             <span className="text-sm font-semibold text-white">
               BIT SINDRI, DHANBAD, JHARKHAND
@@ -54,7 +54,7 @@ const Navbar = () => {
           <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           <input
             type="search"
-            className="border rounded w-full h-10 pl-10 pr-5"
+            className="border rounded-2xl w-full h-10 pl-10 pr-5"
             placeholder="Search Profile and Resources . . ."
           />
         </div>
@@ -63,19 +63,19 @@ const Navbar = () => {
         <nav className="hidden md:flex space-x-8 text-white">
           <a
             href="#alumni-network"
-            className="hover:underline decoration-blue-700 underline-offset-8"
+            className="hover:underline decoration-customBlue text-xs underline-offset-8 "
           >
             Alumni Network
           </a>
           <a
             href="#career-support"
-            className="hover:underline decoration-blue-700 underline-offset-8"
+            className="hover:underline decoration-customBlue text-xs underline-offset-8"
           >
-            Career Support
+            Career Guidance
           </a>
           <a
             href="#mentorship-program"
-            className="hover:underline decoration-blue-700 underline-offset-8"
+            className="hover:underline decoration-customBlue text-xs underline-offset-8"
           >
             Mentorship Program
           </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
         {/* Login/Register Button */}
         <div className="relative hidden md:block">
           <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            className="bg-customBlue text-white px-4 py-2 rounded-lg hover:bg-blue-700"
             onClick={toggleLoginMenu}
           >
             Login / Sign Up
@@ -93,13 +93,13 @@ const Navbar = () => {
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
               <button
                 onClick={openStudentLoginModal}
-                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-blue-600"
+                className="block w-full text-left px-4 py-2 text-sm text-gray-800 rounded-lg hover:bg-blue-600"
               >
                 Login as Student
               </button>
               <button
                 onClick={openAlumniLoginModal}
-                className="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-blue-600"
+                className="block w-full text-left px-4 py-2 text-sm text-gray-800 rounded-lg hover:bg-blue-600"
               >
                 Login as Alumni
               </button>

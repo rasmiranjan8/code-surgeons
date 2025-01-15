@@ -43,8 +43,8 @@ const ImageSlider = ({ sliderImages }) => {
 
         {/* Overlay */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 space-y-2">
-          <h1 className="text-2xl md:text-5xl font-bold text-white p-2 rounded-md w-[80%] sm:w-[90%] md:w-[70%]">
-            Fostering Connections Between BIT Sindri Alumni and Students
+          <h1 className="text-xl md:text-5xl md:font-bold font-semibold text-white rounded-md w-[80%] sm:w-[90%] md:w-[70%]">
+          Empowering Connections, Shaping Futures
           </h1>
           <p className="text-sm md:text-base w-[80%] sm:w-[90%] md:w-[70%] text-white p-2 rounded-md mt-2">
             Welcome to the BIT Sindri Alumni Network, where we bridge the gap
@@ -53,7 +53,7 @@ const ImageSlider = ({ sliderImages }) => {
             opportunities, career guidance, and a vibrant directory for
             networking.
           </p>
-          <button onClick={() => navigate("/alumni-directory")} className="border border-gray-200 bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800">
+          <button onClick={() => navigate("/alumni-directory")} className=" bg-customBlue text-white px-4 py-2 rounded-md hover:bg-darkblue">
             Connect
           </button>
         </div>
@@ -83,7 +83,7 @@ const ImageSlider = ({ sliderImages }) => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-white" : "bg-white/50"
+                index === currentIndex ? "bg-customBlue" : "bg-white/50"
               }`}
               aria-label={`Slide ${index + 1}`}
             />

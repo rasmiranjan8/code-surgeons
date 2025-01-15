@@ -3,12 +3,12 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 
 import { useNavigate } from "react-router-dom";
-const CareerSupport = () => {
+const CareerGuidance = () => {
   const navigate = useNavigate();
   return (
     <div
       id="career-support"
-      className="flex items-center justify-center bg-gray-50"
+      className="flex items-center py-40 justify-center bg-gray-50"
     >
       <div className="container mx-auto p-6 flex flex-col justify-end lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-8">
         {/* Left Section - Image */}
@@ -29,9 +29,9 @@ const CareerSupport = () => {
             Get personalized advice and resources to accelerate your career
             growth.
           </p>
-          <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4">
+          <div className="flex flex-col lg:flex-row lg:space-x-6 gap-4 ">
             <button
-              className="bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 flex items-center gap-2"
+              className="bg-customBlue text-white px-6 py-4 rounded-lg hover:bg-darkblue flex items-center gap-2"
               onClick={() => navigate("/resources")}
             >
               Explore
@@ -44,4 +44,4 @@ const CareerSupport = () => {
   );
 };
 
-export default CareerSupport;
+export default CareerGuidance;

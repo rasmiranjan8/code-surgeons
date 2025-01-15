@@ -21,7 +21,7 @@ const statistics = [
 
 const AlumniStatistics = () => {
   return (
-    <section className="bg-gray-900 py-12 px-4 md:px-8">
+    <section className="bg-darkblue py-20 px-4 md:px-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         {statistics.map((stat, index) => (
           <div key={index} className="flex flex-col space-y-4 items-center">

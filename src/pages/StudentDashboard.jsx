@@ -5,7 +5,6 @@ import { CgProfile } from "react-icons/cg";
 import { IoBookOutline } from "react-icons/io5";
 import { GrResources } from "react-icons/gr";
 import { LuLayoutTemplate } from "react-icons/lu";
-import { GiSkills } from "react-icons/gi";
 import { FaHandshake } from "react-icons/fa";
 import { VscEditSession } from "react-icons/vsc";
 import { MdOutlineMessage } from "react-icons/md";
@@ -22,16 +21,16 @@ const StudentDashboard = () => {
     <>
       <div className="min-h-screen bg-gray-100">
         {/* Header */}
-        <header className="bg-blue-900 text-white p-4 px-8 flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex items-center space-x-4">
+        <header className="bg-darkblue text-white p-4 px-8 flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex items-center space-x-4 px-7">
             <img
               src="/BIT_Sindri_Logo.png"
               alt="Logo"
-              className="w-10 h-10 rounded-full"
+              className="w-20 h-20 rounded-full"
             />
             <div>
-              <h1 className="text-lg font-semibold">Student Name</h1>
-              <p className="text-sm">BIT Sindri, Dhanbad</p>
+              <h1 className="text-lg font-semibold text-customBlue">ALUMNI CONNECT</h1>
+              <p className="text-sm">BIT SINDRI, DHANBAD, JHARKHAND</p>
             </div>
           </div>
 
@@ -48,21 +47,21 @@ const StudentDashboard = () => {
           </div>
 
           {/* Profile Button */}
-          <div className="flex items-center mt-4 space-x-8 sm:mt-0">
+          <div className="flex items-center mt-4 space-x-8 sm:mt-0 px-9">
             <button
-              className="bg-blue-600 text-white rounded-md p-1 px-4 hover:bg-blue-800"
+              className="bg-customBlue text-white rounded-md p-1 px-4 hover:bg-blue-800"
               onClick={() => navigate("/")}
             >
               Logout
             </button>
             <button
-              className="bg-blue-600 text-white rounded-md p-1 px-4 hover:bg-blue-800"
+              className="bg-customBlue text-white rounded-md p-1 px-4 hover:bg-blue-800"
               onClick={() => navigate("/student/profile")}
             >
               Go to Profile
             </button>
             <button
-              className="w-8 h-8 rounded-full bg-gray-300 flex justify-center items-center"
+              className="w-14 h-14 rounded-full bg-gray-300 flex justify-center items-center"
               onClick={() => navigate("/student/profile")}
             >
               <CgProfile className=" w-12 h-12 invert" size={25} />
@@ -107,7 +106,7 @@ const StudentDashboard = () => {
 
                 <button className="w-full border border-gray-500 p-4 py-2 rounded-lg flex space-x-3 items-center hover:bg-gray-200">
                   <MdOutlinePeopleAlt size={40} className="text-blue-500" />
-                  <p>View Mentors</p>
+                  <p>View Mentor</p>
                 </button>
               </div>
             </section>
@@ -120,8 +119,9 @@ const StudentDashboard = () => {
                 <h2 className="text-3xl font-bold">Career Guidance</h2>
               </div>
               <div className="flex items-center space-x-1">
-                <button className="text-gray-700 hover:underline">
-                  Explore Resources
+                <button className="text-gray-700 hover:underline"
+                onClick={() => navigate("/resources")}
+                 > Explore Resources
                 </button>
                 <IoIosArrowForward size={20} />
               </div>
@@ -137,10 +137,6 @@ const StudentDashboard = () => {
 
                 <span>Resume Templates</span>
               </p>
-              <p className="flex items-center space-x-2">
-                <GiSkills size={25} />
-                <span>Skill Assessment</span>
-              </p>
             </div>
           </section>
 
@@ -152,8 +148,9 @@ const StudentDashboard = () => {
                 <h2 className="text-3xl font-bold">Mentorship Program</h2>
               </div>
               <div className="flex items-center space-x-1">
-                <button className="text-gray-700 hover:underline">
-                  Find a Mentor
+                <button className="text-gray-700 hover:underline"
+                onClick={() => navigate("/alumni/mentorship")}
+                 > Find a Mentor
                 </button>
                 <IoIosArrowForward size={20} />
               </div>

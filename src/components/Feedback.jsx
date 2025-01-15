@@ -26,7 +26,7 @@ const feedbackData = [
 
 const Feedback = () => {
   return (
-    <section className="bg-gradient-to-b from-blue-700 to-blue-900 py-12 px-4 md:px-8">
+    <section className="bg-gradient-to-b from-blue-700 to-darkblue py-20 px-4 md:px-8">
       <div className="text-center text-white mb-8">
         <h2 className="text-2xl md:text-4xl font-bold">
           Empowered Journeys, Shared Stories

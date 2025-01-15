@@ -33,8 +33,8 @@ const Footer = () => {
       {/* Upper Section */}
       <div className="flex flex-wrap w-full py-8">
         {/* Left box */}
-        <div className="w-full lg:w-1/2 p-6 text-3xl lg:text-5xl leading-relaxed font-bold text-center lg:text-left">
-          Stay Connected with BIT Alumni Network
+        <div className="w-full lg:w-1/2 p-6 text-xl lg:text-5xl leading-relaxed font-normal text-center lg:text-left">
+          Stay Connected with BITS Alumni Network
         </div>
 
         {/* Right box */}
@@ -53,11 +53,11 @@ const Footer = () => {
               placeholder="Enter Your Email"
               value={emailEntered}
               onChange={(e) => setEmailEntered(e.target.value)}
-              className="px-4 py-2 border border-gray-300 bg-transparent text-white placeholder:text-gray-300 w-full lg:w-[70%]"
+              className="px-4 py-2 rounded border border-gray-300 bg-transparent text-white placeholder:text-gray-300 w-full lg:w-[70%]"
             />
             <button
               type="submit"
-              className="bg-blue-500 text-white hover:bg-blue-600 px-6 py-2 rounded"
+              className="bg-customBlue text-white hover:text-black hover:bg-white px-6 py-2 rounded"
             >
               Subscribe
             </button>
@@ -65,7 +65,7 @@ const Footer = () => {
           {message && (
             <p className="my-2 text-center text-green-400 text-sm">{message}</p>
           )}
-          <p className="text-sm mt-2">
+          <p className="text-xs mt-2">
             By clicking Subscribe you're confirming that you agree with our
             Terms and Conditions.
           </p>
@@ -76,7 +76,7 @@ const Footer = () => {
       <div className="flex flex-wrap items-center justify-between p-8 py-16 bg-darkblue space-y-8 lg:space-y-0">
         {/* Logo */}
         <div className="w-full lg:w-auto flex justify-center lg:justify-start">
-          <img src="/BIT_Sindri_Logo.png" alt="logo" className="h-20" />
+          <img src="/BIT_Sindri_Logo.png" alt="logo" className="h-28" />
         </div>
 
         {/* Navigation Links */}
@@ -85,14 +85,12 @@ const Footer = () => {
             <a href="#alumni-network">Alumni Network</a>
           </li>
           <li>
-            <a href="#career-support">Career Support</a>
+            <a href="#career-support">Career Guidance</a>
           </li>
           <li>
             <a href="#mentorship-program">Mentorship Program</a>
           </li>
-          <li>
-            <a href="#">Event Calendar</a>
-          </li>
+        
           <li>
             <a href="#">Contact Us</a>
           </li>

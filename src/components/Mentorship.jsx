@@ -14,7 +14,7 @@ const Mentorship = () => {
   return (
     <div
       id="mentorship-program"
-      className="bg-white py-10 flex items-center justify-center"
+      className="bg-white border border-gray-200 py-40 flex items-center justify-center"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 px-2">
         {/* Left Section */}
@@ -28,14 +28,14 @@ const Mentorship = () => {
           <div className="flex space-x-6">
             <button
               onClick={() => navigate("/alumni/mentorship")}
-              className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition"
+              className="bg-customBlue text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-darkblue transition"
             >
               Find a Mentor
               <GoArrowUpRight size={20} className="inline-block ml-1" />
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-blue-500 text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-blue-600 transition"
+              className="bg-customBlue text-white w-[200px] mx-auto md:mx-0 px-6 py-3 rounded-md hover:bg-darkblue transition"
             >
               Become a Mentor
               <GoArrowUpRight size={20} className="inline-block ml-1" />

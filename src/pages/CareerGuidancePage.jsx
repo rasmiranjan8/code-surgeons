@@ -1,6 +1,6 @@
 import React from "react";
 
-const CareerGuidancePage = () => {
+const CareerSupport = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
@@ -105,4 +105,4 @@ const CareerGuidancePage = () => {
   );
 };
 
-export default CareerGuidancePage;
+export default CareerSupport;
