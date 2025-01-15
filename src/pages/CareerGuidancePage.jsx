@@ -4,25 +4,22 @@ const CareerSupport = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
-      <header className="bg-blue-900 text-white p-6 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
+      <header className="bg-darkblue text-white py-4 px-6 flex justify-between items-center">
+        <div className="flex items-center space-x-4 px-16">
           <img
             src="/BIT_Sindri_Logo.png"
-            alt="BIT Sindri Logo"
-            className="w-12 h-12 rounded-full"
+            alt="Logo"
+            className="w-20 h-20 rounded-full"
+            onClick={() => navigate("/")}
           />
-          <h1 className="text-2xl font-bold">
-            ALUMNI
-            <span className="block text-sm font-normal">
-              B.I.T Sindri, Dhanbad, Jharkhand
-            </span>
-          </h1>
+          <div className="flex flex-col">
+            <h1 className="text-lg font-semibold">ALUMNI CONNECT</h1>
+            <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
+          </div>
         </div>
-        <button className="bg-white text-blue-900 font-semibold px-4 py-2 rounded-lg hover:bg-gray-200">
-          Login / Sign Up
-        </button>
+        <button className="bg-customBlue px-8 py-2 rounded-lg mx-20" onClick={() => navigate("/")}>Login / Sign Up</button>
       </header>
-
+      
       {/* Filter Section */}
       <div className="bg-white py-6 px-4 sm:px-12 shadow">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
