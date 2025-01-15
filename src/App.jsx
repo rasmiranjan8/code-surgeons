@@ -10,7 +10,8 @@ import AlumniProfile from "./pages/AlumniProfile";
 import MentorshipPage from "./pages/MentorshipPage";
 import ExploreResource from "./pages/ExploreResource";
 import AlumniDirectory from "./pages/AlumniDirectory";
-import JohnDoeprofile from "./pages/JohnDoeProfilePage";
+import JohnDoeprofilePage from "./pages/JohnDoeProfilePage";
+ 
 function App() {
   return (
     <div>
@@ -28,7 +29,7 @@ function App() {
         <Route path="/alumni/mentorship" element={<MentorshipPage />} />
         <Route path="/resources" element={<ExploreResource />} />
         <Route path="/alumni-directory" element={<AlumniDirectory />} />
-        <Route path="/john-doe" element={<JohnDoeprofile />} />
+        <Route path="/john-doe" element={<JohnDoeprofilePage />} />
       </Routes>
     </div>
   );
