@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
-const AlumniSignup = ({ isOpen, onClose }) => {
+const AlumniSignup = ({ isOpen, onClose, onSignup }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [industry, setIndustry] = useState("");
+  const [graduationYear, setGraduationYear] = useState("");
   const [message, setMessage] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
-    if (!fullName || !email || !password || !industry) {
+    // Validate all fields
+    if (!fullName || !email || !password || !graduationYear) {
       setMessage("Please fill all the fields.");
       setSignupSuccess(false);
       return;
@@ -21,11 +21,18 @@ const AlumniSignup = ({ isOpen, onClose }) => {
     // Simulate a successful signup
     setSignupSuccess(true);
     setMessage("Signup successful! Now you can login.");
-    // Optionally reset the form fields after submission
+    onSignup(email, password); // Pass email and password back to parent
+
+    // Reset fields
     setFullName("");
     setEmail("");
     setPassword("");
-    setIndustry("");
+    setGraduationYear("");
+
+    // Close modal after a delay
+    setTimeout(() => {
+      onClose();
+    }, 1500);
   };
 
   if (!isOpen) return null;
@@ -46,7 +53,7 @@ const AlumniSignup = ({ isOpen, onClose }) => {
           Alumni Signup
         </h2>
 
-        {/* Display Message */}
+        {/* Message */}
         {message && (
           <p
             className={`text-center text-sm ${
@@ -67,9 +74,9 @@ const AlumniSignup = ({ isOpen, onClose }) => {
             <input
               type="text"
               placeholder="Enter your full name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -81,9 +88,9 @@ const AlumniSignup = ({ isOpen, onClose }) => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -95,54 +102,41 @@ const AlumniSignup = ({ isOpen, onClose }) => {
             <input
               type="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
-          {/* Industry */}
+          {/* Graduation Year */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Industry
+              Graduation Year
             </label>
             <select
+              value={graduationYear}
+              onChange={(e) => setGraduationYear(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={industry}
-              onChange={(e) => setIndustry(e.target.value)}
             >
-              <option value="">Select your industry</option>
-              <option value="information-technology">
-                Information Technology & Software Development
-              </option>
-              <option value="healthcare">Healthcare & Pharmaceuticals</option>
-              <option value="manufacturing">Manufacturing & Engineering</option>
-              <option value="education">Education & Research</option>
-              <option value="finance">Finance & Banking</option>
-              <option value="entrepreneurship">
-                Entrepreneurship & Startups
-              </option>
-              <option value="marketing">Marketing & Advertising</option>
-              <option value="government">Government & Public Policy</option>
-              <option value="energy">Energy & Environment</option>
-              <option value="legal">Legal & Compliance</option>
-              <option value="retail">Retail & E-commerce</option>
-              <option value="media">Media & Entertainment</option>
-              <option value="hospitality">Hospitality & Tourism</option>
-              <option value="non-profit">Non-profit & Social Services</option>
-              <option value="others">Others</option>
+              <option value="">Select Graduation Year</option>
+              {Array.from(
+                { length: 10 },
+                (_, i) => new Date().getFullYear() - i
+              ).map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
             </select>
           </div>
 
           {/* Signup Button */}
-          <div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-            >
-              Signup
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+          >
+            Signup
+          </button>
         </form>
       </div>
     </div>

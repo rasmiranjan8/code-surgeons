@@ -6,15 +6,23 @@ const StudentLoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // New state for signup success message
   const [isStudentSignupModalOpen, setStudentSignupModalOpen] = useState(false);
+
+  const [credentials, setCredentials] = useState({
+    email: "student@gmail.com",
+    password: "student123",
+  });
+
   const navigate = useNavigate();
+
+  const handleSignup = (signupEmail, signupPassword) => {
+    setCredentials({ email: signupEmail, password: signupPassword });
+    setSuccessMessage("Signup is successful, try login now!"); // Set success message
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Hardcoded valid credentials for demonstration
-    const validEmail = "student@gmail.com";
-    const validPassword = "student123";
 
     // Check if the email is valid
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,11 +31,10 @@ const StudentLoginForm = () => {
       return;
     }
 
-    if (email === validEmail && password === validPassword) {
-      // Redirect to dashboard if credentials match
-      navigate("/student/dashboard");
+    // Check credentials
+    if (email === credentials.email && password === credentials.password) {
+      navigate("/student/dashboard"); // Redirect to the dashboard
     } else {
-      // Display an error message if credentials are incorrect
       setError("Invalid Email ID or Password. Please try again.");
     }
   };
@@ -36,6 +43,13 @@ const StudentLoginForm = () => {
     <div className="flex flex-col items-center justify-center w-full h-auto">
       {/* Title */}
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Student Login</h1>
+
+      {/* Success Message */}
+      {successMessage && (
+        <p className="text-green-500 text-sm text-center mb-4">
+          {successMessage}
+        </p>
+      )}
 
       {/* Error Message */}
       {error && (
@@ -88,24 +102,32 @@ const StudentLoginForm = () => {
           Login
         </button>
       </form>
+
+      {/* Additional Actions */}
       <div className="flex flex-col items-center justify-center w-full">
         <div className="p-4 text-blue-700">
           <button>Forgot Password?</button>
         </div>
         <div className="flex flex-row space-x-2">
-          <p>Don't have an account ? </p>
+          <p>Don't have an account?</p>
           <button
             className="text-blue-600"
-            onClick={() => setStudentSignupModalOpen(true)}
+            onClick={() => {
+              setStudentSignupModalOpen(true);
+              setSuccessMessage(""); // Clear success message when reopening signup modal
+            }}
           >
             Sign Up
           </button>
-          <StudentSignup
-            isOpen={isStudentSignupModalOpen}
-            onClose={() => setStudentSignupModalOpen(false)}
-          />
         </div>
       </div>
+
+      {/* Signup Modal */}
+      <StudentSignup
+        isOpen={isStudentSignupModalOpen}
+        onClose={() => setStudentSignupModalOpen(false)}
+        onSignup={handleSignup}
+      />
     </div>
   );
 };

@@ -7,14 +7,16 @@ const AlumniLoginForm = ({ closeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [signupMessage, setSignupMessage] = useState(""); // Success message from signup
+  const [registeredCredentials, setRegisteredCredentials] = useState({
+    email: "alumni@gmail.com",
+    password: "alumni123",
+  });
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Hardcoded valid credentials for demonstration
-    const validEmail = "alumni@gmail.com";
-    const validPassword = "alumni123";
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,11 +26,19 @@ const AlumniLoginForm = ({ closeModal }) => {
     }
 
     // Validate email and password
-    if (email === validEmail && password === validPassword) {
+    if (
+      email === registeredCredentials.email &&
+      password === registeredCredentials.password
+    ) {
       navigate("/alumni/dashboard"); // Redirect to Alumni Dashboard
     } else {
       setError("Invalid Email ID or Password. Please try again.");
     }
+  };
+
+  const handleSignup = (email, password) => {
+    setRegisteredCredentials({ email, password });
+    setSignupMessage("Signup successful! Try logging in now.");
   };
 
   return (
@@ -43,9 +53,16 @@ const AlumniLoginForm = ({ closeModal }) => {
         </button>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
           Alumni Login
         </h1>
+
+        {/* Success Message from Signup */}
+        {signupMessage && (
+          <p className="text-green-600 text-sm text-center mb-4">
+            {signupMessage}
+          </p>
+        )}
 
         {/* Error Message */}
         {error && (
@@ -121,6 +138,7 @@ const AlumniLoginForm = ({ closeModal }) => {
         <AlumniSignup
           isOpen={isAlumniModalOpen}
           onClose={() => setAlumniModalOpen(false)}
+          onSignup={handleSignup} // Pass the handleSignup function
         />
       )}
     </div>
