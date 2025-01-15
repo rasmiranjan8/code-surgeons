@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const mentors = [
   {
@@ -86,6 +87,7 @@ const mentors = [
 ];
 
 const getRecentGraduationYears = (numYears) => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
   return Array.from({ length: numYears }, (_, i) => currentYear - i);
 };
@@ -137,11 +139,13 @@ const MentorshipPage = () => {
             onClick={() => navigate("/")}
           />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold">ALUMNI CONNECT</h1>
+            <h1 className="text-lg font-semibold text-customBlue">ALUMNI CONNECT</h1>
             <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
           </div>
         </div>
-        <button className="bg-customBlue px-8 py-2 rounded-lg mx-20" onClick={() => navigate("/")}>Login / Sign Up</button>
+        
+         
+        
       </header>
 
       {/* Filters */}
@@ -327,7 +331,7 @@ const MentorshipPage = () => {
               </div>
             </div>
             <div className="flex flex-col items-center md:items-end mt-4 md:mt-0">
-              <div className="flex items-center text-yellow-500 mb-2">
+              <div className="flex items-center text-yellow-500 mb-6">
                 <FaStar />
                 <span className="ml-1 text-lg font-semibold">
                   {mentor.rating}
@@ -335,6 +339,9 @@ const MentorshipPage = () => {
               </div>
               <button className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg">
                 Request Mentorship
+              </button>
+              <button className="bg-white hover:bg-blue-800 text-customBlue border hover:text-white border-customBlue px-11 py-2 rounded-lg mt-2">
+                View Profile
               </button>
             </div>
           </div>

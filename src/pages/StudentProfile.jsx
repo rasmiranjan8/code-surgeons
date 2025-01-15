@@ -157,16 +157,10 @@ const StudentProfile = () => {
           <div className="flex flex-col items-center  justify-center space-y-4 border-2 border-gray-300 rounded-lg p-5 shadow-md">
             <button className="bg-customBlue text-gray-100 px-4 rounded-lg shadow hover:bg-blue-600 flex items-center space-x-2 w-full py-6 justify-center">
               <FaRegEnvelope size={26} />
-              <span className="text-md">Send Message</span>
+              <span className="text-md">Messages</span>
             </button>
-            <button className="bg-customBlue text-gray-100 px-4 rounded-lg shadow hover:bg-blue-600 flex items-center space-x-2 w-full py-6 justify-center">
-              <SiCodementor size={26} />
-              <span className="text-md">Request Mentorship</span>
-            </button>
-            <button className="bg-white text-gray-900 px-4 rounded-lg shadow hover:bg-blue-600 hover:text-white flex items-center space-x-2 w-full py-6 justify-center">
-              <FaRegHeart />
-              <span>Follow</span>
-            </button>
+             
+            
           </div>
           {/* Skills & Interests */}
           <div className="bg-white p-6 rounded-lg shadow-md">

@@ -9,7 +9,7 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const AlumniProfile = () => {
+const JohnDoeProfile = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -53,11 +53,7 @@ const AlumniProfile = () => {
           </div>
         </div>
 
-        {/* Dashboard Icon */}
-        <button className="pr-48" onClick={() => navigate("/Alumni/Dashboard")}>
-          <LuLayoutDashboard size={80} />
-          <p>Dashboard</p>
-        </button>
+         
       </section>
 
       {/* Main Content Section */}
@@ -129,10 +125,23 @@ const AlumniProfile = () => {
         <div className="space-y-8">
           {/* Contact Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <button className="w-full bg-customBlue hover:bg-blue-700 text-white py-2 rounded-lg mb-4 h-16">
               <div className="flex flex-row justify-center space-x-4 items-center font-bold">
-                <FaRegEnvelope size={25} />
-                <p>Messages</p>
+                <FaRegEnvelope size={30} />
+                <p>Send Message</p>
+              </div>
+            </button>
+            <button className="w-full bg-customBlue hover:bg-blue-700 text-white py-2 rounded-lg mb-4 h-16">
+              <div className="flex flex-row justify-center space-x-4 items-center font-bold">
+                <SiCodementor size={30} />
+                <p>Request Mentorship</p>
+              </div>
+            </button>
+            <button className="w-full border-2  hover:bg-blue-700 hover:text-white  text-gray-800 text-bold py-3 rounded-lg">
+              <div className="flex flex-row justify-center space-x-2 items-center">
+                 
+                <p>Connect</p>
               </div>
             </button>
           </div>
@@ -200,4 +209,4 @@ const AlumniProfile = () => {
   );
 };
 
-export default AlumniProfile;
+export default JohnDoeProfile;

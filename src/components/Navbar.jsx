@@ -36,13 +36,13 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-darkblue shadow-sm top-0 z-50 ">
+    <header className="bg-darkblue shadow-sm top-0 z-50 sticky">
       <div className="container mx-auto flex justify-between items-center py-6 px-6">
         {/* Logo and Title */}
         <div className="flex items-center">
           <img src="/BIT_Sindri_Logo.png" alt="Logo" className="h-20" />
           <div className="flex flex-col ml-2">
-            <span className="text-lg font-bold text-customBlue">
+            <span className="text-lg  font-bold text-customBlue">
               ALUMNI CONNECT
             </span>
             <span className="text-sm font-semibold text-white">
@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8 text-white">
+        <nav className="hidden md:flex space-x-8  text-white">
           <a
             href="#alumni-network"
             className="hover:underline decoration-customBlue text-xs underline-offset-8 "
@@ -119,7 +119,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-darkblue">
-          <nav className="flex flex-col space-y-4 px-6 py-4 text-white">
+          <nav className="flex flex-col lg:flex-col space-y-4 px-6 py-4 text-white">
             <a href="#alumni-network" className="hover:text-blue-600">
               Alumni Network
             </a>
