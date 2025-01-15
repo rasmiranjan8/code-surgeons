@@ -27,6 +27,7 @@ const StudentDashboard = () => {
               src="/BIT_Sindri_Logo.png"
               alt="Logo"
               className="w-20 h-20 rounded-full"
+              onClick={() => navigate("/")}
             />
             <div>
               <h1 className="text-lg font-semibold text-customBlue">ALUMNI CONNECT</h1>
@@ -61,8 +62,8 @@ const StudentDashboard = () => {
               Go to Profile
             </button>
             <button
-              className="w-14 h-14 rounded-full bg-gray-300 flex justify-center items-center"
-              onClick={() => navigate("/student/profile")}
+              className="w-14 h-14 rounded-full bg-gray-50 flex justify-center items-center"
+               
             >
               <CgProfile className=" w-12 h-12 invert" size={25} />
             </button>
@@ -78,7 +79,7 @@ const StudentDashboard = () => {
               <h2 className="text-3xl font-bold mb-4">Recent Updates</h2>
               <div className="space-y-2">
                 <div className="flex flex-row space-x-4">
-                  <FiMessageSquare size={40} className="text-blue-500" />
+                  <FiMessageSquare size={40} className="text-customBlue" />
                   <div className="flex flex-col">
                     <p className="text-sm">New message from your mentor</p>
                     <p className="text-sm text-gray-500">2 hours ago</p>
@@ -86,7 +87,7 @@ const StudentDashboard = () => {
                 </div>
                 <hr />
                 <div className="flex flex-row space-x-4">
-                  <CiCalendar size={40} className="text-blue-500 font-bold" />
+                  <CiCalendar size={40} className="text-customBlue font-bold" />
                   <div className="flex flex-col">
                     <p className="text-sm">Upcoming session scheduled</p>
                     <p className="text-sm text-gray-500">Yesterday</p>
@@ -100,12 +101,12 @@ const StudentDashboard = () => {
               <h2 className="text-4xl font-bold mb-4">Quick Links</h2>
               <div className="space-y-4">
                 <button className="w-full border border-gray-500 p-4 py-2 rounded-lg flex space-x-3 items-center hover:bg-gray-200">
-                  <CiCalendar size={40} className="text-blue-500 font-bold" />
+                  <CiCalendar size={40} className="text-customBlue font-bold" />
                   <p>Schedule a Session</p>
                 </button>
 
                 <button className="w-full border border-gray-500 p-4 py-2 rounded-lg flex space-x-3 items-center hover:bg-gray-200">
-                  <MdOutlinePeopleAlt size={40} className="text-blue-500" />
+                  <MdOutlinePeopleAlt size={40} className="text-customBlue" />
                   <p>View Mentor</p>
                 </button>
               </div>

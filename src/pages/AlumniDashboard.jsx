@@ -19,19 +19,20 @@ const AlumniDashboard = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-blue-950 text-white p-4 px-8 flex flex-col sm:flex-row justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <img
-            src="/BIT_Sindri_Logo.png"
-            alt="Logo"
-            className="w-10 h-10 rounded-full"
-          />
-          <div>
-            <h1 className="text-lg text-customBlue font-semibold">
-              Alumni Name
-            </h1>
+      {/* Header */}
+      <header className="bg-darkblue text-white p-4 px-8 flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex items-center space-x-4 px-7">
+            <img
+              src="/BIT_Sindri_Logo.png"
+              alt="Logo"
+              className="w-20 h-20 rounded-full"
+              onClick={() => navigate("/")}
+            />
+            <div>
+              <h1 className="text-lg font-semibold text-customBlue">ALUMNI CONNECT</h1>
+              <p className="text-sm">BIT SINDRI, DHANBAD, JHARKHAND</p>
+            </div>
           </div>
-        </div>
 
         {/* Search Bar Centered */}
         <div className="flex-grow flex justify-center mt-4 sm:mt-0">
@@ -39,29 +40,29 @@ const AlumniDashboard = () => {
             <CiSearch className="absolute left-3 text-gray-500" />
             <input
               type="text"
-              placeholder="Search mentee requests, resources......."
+              placeholder="Search mentee requests......."
               className="pl-10 py-2 w-[100%] rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-white"
             />
           </div>
         </div>
 
         {/* Profile Button */}
-        <div className="flex items-center mt-4 space-x-8 sm:mt-0 ">
+        <div className="flex items-center mt-4 space-x-8 sm:mt-0 mx-6 ">
           <button
-            className="bg-blue-500 hover:bg-blue-700 rounded-md p-1 px-6"
+            className="bg-customBlue hover:bg-blue-700 rounded-md p-1 px-6"
             onClick={() => navigate("/")}
           >
             Logout
           </button>
           <button
-            className="bg-blue-500 hover:bg-blue-700 rounded-md p-1 px-6"
+            className="bg-customBlue hover:bg-blue-700 rounded-md p-1 px-6"
             onClick={() => navigate("/Alumni/profile")}
           >
             Go to Profile
           </button>
           <button
-            className="w-8 h-8 rounded-full bg-gray-300 flex justify-center items-center"
-            onClick={() => navigate("/Alumni/profile")}
+            className="w-14 h-14  rounded-full bg-gray-50 flex justify-center items-center"
+             
           >
             <CgProfile className="w-12 h-12 invert" size={25} />
           </button>
@@ -77,7 +78,7 @@ const AlumniDashboard = () => {
             </h2>
             <div className="flex flex-col  space-y-4">
               <button className="flex flex-row bg-gray-200 text-black px-4 py-2 rounded-md w-full text-left h-20 items-center space-x-4">
-                <FiMessageSquare size={35} className="text-blue-700" />
+                <FiMessageSquare size={35} className="text-customBlue" />
 
                 <div>
                   <p>New mentorship request from Pritam</p>
@@ -85,15 +86,15 @@ const AlumniDashboard = () => {
                 </div>
               </button>
               <button className="flex flex-row bg-gray-200 text-black px-4 py-2 rounded-md w-full text-left h-20 items-center space-x-4">
-                <FaUserGraduate size={35} className="text-blue-700" />
+                <FaUserGraduate size={35} className="text-customBlue" />
 
                 <div>
-                  <p>Resource you shared was helpful to students</p>
+                  <p>Resource you shared was helpful to 5 students</p>
                   <p className="text-gray-500">Yesterday</p>
                 </div>
               </button>
               <button className="flex flex-row bg-gray-200 text-black px-4 py-2 rounded-md w-full text-left h-20 items-center space-x-4">
-                <SlCalender size={35} className="text-blue-700" />
+                <SlCalender size={35} className="text-customBlue" />
 
                 <div>
                   <p>Rashmi has scheduled a Career Guidance Session</p>
@@ -110,7 +111,7 @@ const AlumniDashboard = () => {
             </h2>
             <div className="space-y-4">
               <button className="flex flex-row bg-gray-200 text-black px-4 py-2 rounded-md w-full text-left h-20 items-center space-x-4">
-                <MdOutlinePeople size={35} className="bg-black text-white" />
+                <MdOutlinePeople size={35} className=" text-customBlue font-semibold" />
 
                 <div>Accept mentorship Request</div>
               </button>
@@ -131,10 +132,10 @@ const AlumniDashboard = () => {
           <div className="border border-gray-400 p-4 rounded-md mb-4">
             <p className="text-gray-700">Your Expertise Areas</p>
             <div className="flex space-x-2 mt-2">
-              <span className="bg-green-500 text-gray-800 text-sm px-3 py-1 rounded-full">
+              <span className="bg-blue-200 text-gray-800 text-sm px-3 py-1 rounded-full">
                 Software Development
               </span>
-              <span className="bg-green-500 text-gray-800 text-sm px-3 py-1 rounded-full">
+              <span className="bg-blue-200 text-gray-800 text-sm px-3 py-1 rounded-full">
                 Finance
               </span>
             </div>

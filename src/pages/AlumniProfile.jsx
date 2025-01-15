@@ -14,30 +14,27 @@ const AlumniProfile = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Header Section */}
-      <header className="bg-blue-950 text-white py-4 px-6 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
+      <header className="bg-darkblue text-white py-4 px-6 flex justify-between items-center">
+        <div className="flex items-center space-x-4 px-16">
           <img
             src="/BIT_Sindri_Logo.png"
-            alt="Alumni Logo"
-            className="w-10 h-10 rounded-full"
+            alt="Logo"
+            className="w-20 h-20 rounded-full"
+            onClick={() => navigate("/")}
           />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold">ALUMNI</h1>
+            <h1 className="text-lg font-semibold">ALUMNI CONNECT</h1>
             <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
           </div>
         </div>
-        <button
-          className="bg-blue-700 px-4 py-2 rounded-lg"
-          onClick={() => navigate("/")}
-        >
-          Logout
-        </button>
+        <button className="bg-customBlue px-7 py-2 rounded-lg mx-12" onClick={() => navigate("/")}>Logout</button>
       </header>
+       
 
       {/* Profile Section */}
       <section className="relative px-8 flex flex-row justify-between items-center bg-gradient-to-r from-blue-500 to-blue-800 text-white p-4 px-">
         {/* Edit Button */}
-        <button className="absolute top-2 right-2 bg-white text-blue-800 px-2 py-2 rounded-lg text-sm font-semibold shadow hover:bg-gray-100 mr-6">
+        <button  className="absolute top-6 right-2 text-white px-2 py-2 rounded-lg text-3xl font-semibold mr-6 pr-12">
           <FaRegEdit />
         </button>
 
@@ -57,7 +54,7 @@ const AlumniProfile = () => {
         </div>
 
         {/* Dashboard Icon */}
-        <button className="pr-28" onClick={() => navigate("/Alumni/Dashboard")}>
+        <button className="pr-48" onClick={() => navigate("/Alumni/Dashboard")}>
           <LuLayoutDashboard size={80} />
           <p>Dashboard</p>
         </button>
@@ -83,7 +80,7 @@ const AlumniProfile = () => {
               <li className="flex flex-row space-x-6 items-center">
                 <FaNetworkWired
                   size={30}
-                  className="text-blue-800 bg-blue-200"
+                  className="text-customBlue"
                 />
                 <div>
                   <p className="font-semibold">Data Scientist</p>
@@ -93,7 +90,7 @@ const AlumniProfile = () => {
               <li className="flex flex-row space-x-6 items-center">
                 <FaNetworkWired
                   size={30}
-                  className="text-blue-800 bg-blue-200"
+                  className="text-customBlue "
                 />
                 <div>
                   <p className="font-semibold">Analyst</p>
@@ -107,7 +104,7 @@ const AlumniProfile = () => {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4">Education</h3>
             <div className="flex flex-row items-center space-x-4 pl-6">
-              <FaBook size={45} className="text-blue-600 bg-blue-200 p-2" />
+              <FaBook size={45} className="text-customBlue p-2" />
               <div>
                 <p>B.Tech in Computer Science</p>
                 <p className="text-gray-700">BIT Sindri • 2011-2015</p>
@@ -118,7 +115,7 @@ const AlumniProfile = () => {
           {/* Testimonials Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">Testimonials</h3>
-            <blockquote className="border-l-4 border-blue-500 pl-4">
+            <blockquote className="border-l-4 border-customBlue pl-4">
               <p className="mb-2">
                 "John helped me transition into data science with practical
                 advice and guidance."
@@ -133,19 +130,19 @@ const AlumniProfile = () => {
           {/* Contact Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
-            <button className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 rounded-lg mb-4 h-16">
+            <button className="w-full bg-customBlue hover:bg-blue-700 text-white py-2 rounded-lg mb-4 h-16">
               <div className="flex flex-row justify-center space-x-4 items-center font-bold">
                 <FaRegEnvelope size={30} />
                 <p>Send Message</p>
               </div>
             </button>
-            <button className="w-full bg-blue-700 hover:bg-blue-800 text-white py-2 rounded-lg mb-4 h-16">
+            <button className="w-full bg-customBlue hover:bg-blue-700 text-white py-2 rounded-lg mb-4 h-16">
               <div className="flex flex-row justify-center space-x-4 items-center font-bold">
                 <SiCodementor size={30} />
                 <p>Request Mentorship</p>
               </div>
             </button>
-            <button className="w-full border-2   text-gray-800 text-bold py-2 rounded-lg">
+            <button className="w-full border-2  hover:bg-blue-700 hover:text-white  text-gray-800 text-bold py-3 rounded-lg">
               <div className="flex flex-row justify-center space-x-2 items-center">
                 <FaRegHeart />
                 <p>Follow</p>
@@ -173,14 +170,14 @@ const AlumniProfile = () => {
           {/* Mentorship Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4">Mentorship</h3>
-            <p className="text-green-700 border rounded-md bg-green-100 inline px-2">
+            <p className="text-green-700 rounded-md bg-green-100 inline px-3 py-2">
               Available for mentorship
             </p>
-            <h1>Preferred Topics:</h1>
-            <p className="text-green-700 border rounded-md bg-green-100 inline-block px-2 mx-3">
+            <h1 className="py-2 mt-4">Preferred Topics:</h1>
+            <p className="text-green-700 rounded-md bg-green-100 inline-block px-2 py-1 mx-3">
               AI
             </p>
-            <p className="text-green-700 border rounded-md bg-green-100 inline px-2">
+            <p className="text-green-700 rounded-md bg-green-100 inline px-2 py-1">
               {" "}
               Career Switching
             </p>

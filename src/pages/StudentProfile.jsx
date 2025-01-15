@@ -22,19 +22,20 @@ const StudentProfile = () => {
             src="/BIT_Sindri_Logo.png"
             alt="Logo"
             className="w-20 h-20 rounded-full"
+            onClick={() => navigate("/")}
           />
           <div className="flex flex-col">
             <h1 className="text-lg font-semibold">ALUMNI CONNECT</h1>
             <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
           </div>
         </div>
-        <button className="bg-customBlue px-7 py-2 rounded-lg mx-16" onClick={() => navigate("/")}>Logout</button>
+        <button className="bg-customBlue px-7 py-2 rounded-lg mx-5" onClick={() => navigate("/")}>Logout</button>
       </header>
 
       {/* Profile Section */}
-      <section className="relative px-8 flex flex-row justify-between items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 px-">
+      <section className="relative px-8 flex flex-row justify-between items-center bg-gradient-to-r pr-32 from-blue-900 to-blue-500 text-white p-4 px-">
         {/* Edit Button */}
-        <button className="absolute top-2 right-2 bg-white text-blue-800 px-2 py-2 rounded-lg text-sm font-semibold shadow hover:bg-gray-100 mr-6">
+        <button className="absolute top-6 right-2 text-white px-2 py-2 rounded-lg text-3xl font-semibold mr-6">
           <FaRegEdit />
         </button>
 
@@ -42,10 +43,10 @@ const StudentProfile = () => {
         <div className="flex flex-row space-x-6 px-10">
           <div className="flex mb-4">
             <div className="w-32 h-32 bg-blue-400 rounded-full flex items-center justify-center text-4xl font-bold border-4">
-              JD
+              RS
             </div>
           </div>
-          <div>
+          <div className="mt-5">
             <h2 className="text-3xl font-semibold">Riya Sharma</h2>
             <p className="text-lg">Student, Batch of 2026</p>
             <p className="text-lg">3rd Year, Computer Science</p>
@@ -83,7 +84,7 @@ const StudentProfile = () => {
               <li className="flex space-x-4 items-center">
                 <AiOutlineCode
                   size={40}
-                  className="bg-violet-200 p-1 rounded-md"
+                  className="text-customBlue p-1 rounded-md"
                 />
                 <div>
                   <p className="font-semibold">AI-Powered Chatbot</p>
@@ -94,7 +95,7 @@ const StudentProfile = () => {
               </li>
               <li className="flex space-x-4 items-center">
                 <GrPersonalComputer
-                  className="bg-pink-300 p-1 rounded-md"
+                  className="text-customBlue p-1 rounded-md"
                   size={40}
                 />
                 <div>
@@ -141,7 +142,7 @@ const StudentProfile = () => {
           {/* Testimonials */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-4">Testimonials</h3>
-            <blockquote className="border-l-4 border-purple-500 pl-4">
+            <blockquote className="border-l-4 border-customBlue pl-4">
               <p className="mb-2">
                 "Riya is a proactive student, always eager to learn and
                 contribute to group projects."
@@ -154,15 +155,15 @@ const StudentProfile = () => {
         {/* Right Column */}
         <div className="space-y-8">
           <div className="flex flex-col items-center  justify-center space-y-4 border-2 border-gray-300 rounded-lg p-5 shadow-md">
-            <button className="bg-purple-800 text-gray-100 px-4 rounded-lg shadow hover:bg-purple-950 flex items-center space-x-2 w-full py-6 justify-center">
+            <button className="bg-customBlue text-gray-100 px-4 rounded-lg shadow hover:bg-blue-600 flex items-center space-x-2 w-full py-6 justify-center">
               <FaRegEnvelope size={26} />
               <span className="text-md">Send Message</span>
             </button>
-            <button className="bg-pink-700 text-gray-100 px-4 rounded-lg shadow hover:bg-pink-900 flex items-center space-x-2 w-full py-6 justify-center">
+            <button className="bg-customBlue text-gray-100 px-4 rounded-lg shadow hover:bg-blue-600 flex items-center space-x-2 w-full py-6 justify-center">
               <SiCodementor size={26} />
               <span className="text-md">Request Mentorship</span>
             </button>
-            <button className="bg-white text-gray-900 px-4 rounded-lg shadow hover:bg-gray-200 flex items-center space-x-2 w-full py-6 justify-center">
+            <button className="bg-white text-gray-900 px-4 rounded-lg shadow hover:bg-blue-600 hover:text-white flex items-center space-x-2 w-full py-6 justify-center">
               <FaRegHeart />
               <span>Follow</span>
             </button>
@@ -179,7 +180,7 @@ const StudentProfile = () => {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-sm"
+                  className="bg-blue-100 text-customBlue px-2 py-1 rounded-full text-sm"
                 >
                   {skill}
                 </span>

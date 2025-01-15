@@ -128,21 +128,20 @@ const MentorshipPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Header */}
-      <header className="bg-blue-950 text-white py-4 px-6 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
+      <header className="bg-darkblue text-white py-4 px-6 flex justify-between items-center">
+        <div className="flex items-center space-x-4 px-16">
           <img
             src="/BIT_Sindri_Logo.png"
             alt="Logo"
-            className="w-10 h-10 rounded-full"
+            className="w-20 h-20 rounded-full"
+            onClick={() => navigate("/")}
           />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold">ALUMNI</h1>
+            <h1 className="text-lg font-semibold">ALUMNI CONNECT</h1>
             <p className="text-sm">B.I.T. SINDRI, DHANBAD, JHARKHAND</p>
           </div>
         </div>
-        <button className="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800">
-          Login/Signup
-        </button>
+        <button className="bg-customBlue px-8 py-2 rounded-lg mx-20" onClick={() => navigate("/")}>Login / Sign Up</button>
       </header>
 
       {/* Filters */}

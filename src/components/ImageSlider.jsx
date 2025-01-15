@@ -23,7 +23,7 @@ const ImageSlider = ({ sliderImages }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center py-10">
+    <div className="flex items-center justify-center py-5 rounded-xl ">
       <div className="relative w-full max-w-full md:max-w-[1360px] h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
         <div
           className="absolute flex transition-transform h-screen duration-500 ease-in-out"
@@ -42,7 +42,7 @@ const ImageSlider = ({ sliderImages }) => {
         </div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 space-y-2">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center  space-y-2">
           <h1 className="text-xl md:text-5xl md:font-bold font-semibold text-white rounded-md w-[80%] sm:w-[90%] md:w-[70%]">
           Empowering Connections, Shaping Futures
           </h1>

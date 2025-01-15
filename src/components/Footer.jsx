@@ -76,7 +76,7 @@ const Footer = () => {
       <div className="flex flex-wrap items-center justify-between p-8 py-16 bg-darkblue space-y-8 lg:space-y-0">
         {/* Logo */}
         <div className="w-full lg:w-auto flex justify-center lg:justify-start">
-          <img src="/BIT_Sindri_Logo.png" alt="logo" className="h-28" />
+          <img src="/BIT_Sindri_Logo.png" alt="logo" className="h-28"  />
         </div>
 
         {/* Navigation Links */}
