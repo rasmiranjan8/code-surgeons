@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StudentSignup = ({ isOpen, onClose }) => {
+const StudentSignup = ({ isOpen, onClose, onSignup }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,11 +21,18 @@ const StudentSignup = ({ isOpen, onClose }) => {
     // Simulate a successful signup
     setSignupSuccess(true);
     setMessage("Signup successful! Now you can login.");
-    // Optionally reset the form fields after submission
+    onSignup(email, password); // Pass email and password to parent
+
+    // Reset the form fields
     setFullName("");
     setEmail("");
     setPassword("");
     setGraduationYear("");
+
+    // Close the modal after a delay
+    setTimeout(() => {
+      onClose();
+    }, 1500);
   };
 
   if (!isOpen) return null;
