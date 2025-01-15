@@ -10,7 +10,7 @@ import AlumniProfile from "./pages/AlumniProfile";
 import MentorshipPage from "./pages/MentorshipPage";
 import ExploreResource from "./pages/ExploreResource";
 import AlumniDirectory from "./pages/AlumniDirectory";
-import JohnDoeProfile from "./pages/JohnDoeProfile";
+import User from "./pages/User";
  
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="/alumni/mentorship" element={<MentorshipPage />} />
         <Route path="/resources" element={<ExploreResource />} />
         <Route path="/alumni-directory" element={<AlumniDirectory />} />
-        <Route path="/john-doe" element={<JohnDoeProfile />} />
+        <Route path="/john-doe" element={<User />} />
       </Routes>
     </div>
   );
