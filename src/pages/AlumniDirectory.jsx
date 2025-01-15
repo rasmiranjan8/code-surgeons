@@ -193,7 +193,7 @@ const AlumniDirectory = () => {
             Connect
           </button>
           <button className="border border-customBlue text-customBlue px-4 py-2 rounded-md hover:bg-blue-100" 
-          onClick={() => navigate("/john/profile")}>
+          onClick={() => navigate("/john-doe")}>
             View Profile
           </button>
         </div>

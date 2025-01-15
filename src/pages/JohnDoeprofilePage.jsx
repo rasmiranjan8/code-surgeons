@@ -9,7 +9,7 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const JohnDoeProfile = () => {
+const JohnDoeprofile = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -209,4 +209,4 @@ const JohnDoeProfile = () => {
   );
 };
 
-export default JohnDoeProfile;
+export default JohnDoeprofile;
