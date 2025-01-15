@@ -5,7 +5,7 @@ import Join from "../components/join";
 import Footer from "../components/Footer";
 import Mentorship from "../components/Mentorship";
 import CareerSupport from "../components/CareerSupport";
-import AlumniReunion from "../components/AlumniReunion";
+
 import Feedback from "../components/Feedback";
 import AlumniStatistics from "../components/AlumniStatistics";
 
