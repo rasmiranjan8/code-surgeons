@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/landingPage";
 import StudentLoginForm from "./pages/StudentLoginForm";
 import AlumniLoginForm from "./pages/AlumniLoginForm";
 import StudentDashboard from "./pages/StudentDashboard";
 import StudentProfile from "./pages/StudentProfile";
 import AlumniDashboard from "./pages/AlumniDashboard";
-import AlumniProfile from "./pages/AlumniProfile" 
+import AlumniProfile from "./pages/AlumniProfile";
 import MentorshipPage from "./pages/MentorshipPage";
 import ExploreResource from "./pages/ExploreResource";
 import AlumniDirectory from "./pages/AlumniDirectory";
